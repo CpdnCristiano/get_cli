@@ -4,7 +4,7 @@
 
 requires [Dart.](https://dart.dev/get-dart)to run.
 ```sh
-pub global activate -sgit <https://github.com/CpdnCristiano/cpdn-cli.git
+pub global activate -sgit https://github.com/CpdnCristiano/cpdn-cli.git
 ```
 
 ### Create screen
