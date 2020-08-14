@@ -1,15 +1,18 @@
-
 import 'package:ansicolor/ansicolor.dart';
 
-final AnsiPen _penError = AnsiPen()..red(bold: true);
-final AnsiPen _penSuccess = AnsiPen()..green(bold: true);
-final AnsiPen _penInfo = AnsiPen()..yellow(bold: true);
-void logError(msg){
-  print(_penError(msg));
-}
-void logSuccess(msg){
-  print(_penSuccess(msg));
-}
-void logInfo(msg){
-  print(_penInfo(msg));
+class LogService {
+  static final AnsiPen _penError = AnsiPen()..red(bold: true);
+  static final AnsiPen _penSuccess = AnsiPen()..green(bold: true);
+  static final AnsiPen _penInfo = AnsiPen()..yellow(bold: true);
+  static void error(msg) {
+    print(_penError(msg));
+  }
+
+  static void success(msg) {
+    print(_penSuccess(msg));
+  }
+
+  static void info(msg) {
+    print(_penInfo(msg));
+  }
 }

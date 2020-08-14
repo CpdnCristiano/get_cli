@@ -5,20 +5,40 @@ import 'package:cpdn_cli/src/common/service/log.service.dart';
 class Utils {
   static String currentPath = Directory.current.path;
   static void createDiretory(String directory) async {
-    logInfo('Creating "${directory}"');
-    await Directory('${currentPath}/${directory}/').createSync(recursive: true);
-    logSuccess('Create "${directory}" with Success');
+    LogService.info('Creating "${directory}"');
+    if (Platform.isWindows) {
+      await Directory('${currentPath}\\${directory}')
+          .createSync(recursive: true);
+    } else {
+      await Directory('${currentPath}/${directory}/')
+          .createSync(recursive: true);
+    }
+    LogService.success('Create "${directory}" with Success');
   }
 
   static Future<bool> existsFile(String path) async {
+    if (Platform.isWindows) {
+      path = path.replaceAll('/', '\\');
+      return await File('$currentPath\\$path').existsSync();
+    }
     return await File('$currentPath/$path').existsSync();
   }
 
   static void createFile(String path) async {
+    if (Platform.isWindows) {
+      path = path.replaceAll('/', '\\');
+      await File('$currentPath\\$path').createSync(recursive: true);
+      return;
+    }
     await File('$currentPath/$path').createSync(recursive: true);
   }
 
   static void writeFile(String path, String text) async {
+    if (Platform.isWindows) {
+      path = path.replaceAll('/', '\\');
+      await File('$currentPath\\$path').writeAsStringSync(text);
+      return;
+    }
     await File('$currentPath/$path').writeAsStringSync(text);
   }
 
@@ -34,14 +54,21 @@ class Utils {
   }
 
   static Future<bool> existsScreen(String screen) async {
-    var presentationDir = Directory('$currentPath/lib/presentation');
+    var presentationDir = Platform.isWindows
+        ? Directory('$currentPath\\lib\\presentation')
+        : Directory('$currentPath/lib/presentation');
+    ;
     List allContents = presentationDir.listSync();
     for (var dir in allContents) {
       if (dir is Directory) {
-        print(dir.path.split('/').last);
-        print(dir.path.split('/').last.endsWith(screen));
-        if (dir.path.split('/').last == screen) {
-          return true;
+        if (Platform.isWindows) {
+          if (dir.path.split('\\').last == screen) {
+            return true;
+          }
+        } else {
+          if (dir.path.split('/').last == screen) {
+            return true;
+          }
         }
       }
     }
@@ -60,6 +87,6 @@ class Utils {
   }
 
   static String extractFileName(String path) {
-    return path.split('/').last;
+    return Platform.isWindows ? path.split('\\').last : path.split('/').last;
   }
 }
