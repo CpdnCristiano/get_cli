@@ -2,8 +2,9 @@ import 'package:cpdn_cli/src/common/service/log.service.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
 void createWidgetCommand(List<String> args) async {
-  var name =
-      args.firstWhere((el) => el.startsWith('--name'), orElse: () => null);
+  var name = args.firstWhere(
+      (el) => el.startsWith('--name') || el.startsWith('--n'),
+      orElse: () => null);
   if (name == null) {
     logError('argument --name not found');
     return;
