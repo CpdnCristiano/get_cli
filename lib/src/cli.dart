@@ -4,7 +4,8 @@ import 'package:cpdn_cli/src/common/service/log.service.dart';
 class Cli {
   void ProcessCommand(List<String> args) {
     if (args.isEmpty) {
-      logError('Command null');
+      logError('unquoted command');
+      logInfo('in the future I will create a help');
       return;
     }
 

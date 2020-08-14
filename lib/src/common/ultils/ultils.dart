@@ -47,4 +47,19 @@ class Utils {
     }
     return false;
   }
+
+  static Future<bool> isFlutterDirectory() async {
+    var presentationDir = Directory.current;
+    List allContents = await presentationDir.listSync();
+    for (var dir in allContents) {
+      if (dir is File) {
+        if (extractFileName(dir.path) == 'pubspec.yaml') return true;
+      }
+    }
+    return false;
+  }
+
+  static String extractFileName(String path) {
+    return path.split('/').last;
+  }
 }
