@@ -5,9 +5,9 @@ import 'package:cpdn_cli/src/common/service/log.service.dart';
 class Utils {
   static String currentPath = Directory.current.path;
   static void createDiretory(String directory) async {
-    logInfo('Creating "${directory}"');
+    LogService.info('Creating "${directory}"');
     await Directory('${currentPath}/${directory}/').createSync(recursive: true);
-    logSuccess('Create "${directory}" with Success');
+    LogService.success('Create "${directory}" with Success');
   }
 
   static Future<bool> existsFile(String path) async {

@@ -6,12 +6,12 @@ void createScreenCommand(List<String> args) async {
       (el) => el.startsWith('--name=') || el.startsWith('--n='),
       orElse: () => null);
   if (name == null) {
-    logError('argument --name not found');
+    LogService.error('argument --name not found');
     return;
   }
   name = name.split('=')[1];
   if (name.isEmpty) {
-    logError('argument --name not found');
+    LogService.error('argument --name not found');
     return;
   }
   name = name.toLowerCase();
