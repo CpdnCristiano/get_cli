@@ -1,9 +1,5 @@
-import 'dart:io';
-
-import 'package:path/path.dart';
-
 void versionCommand() async {
-  var pathToYaml =
+  /* var pathToYaml =
       join(dirname(Platform.script.toFilePath()), '../pubspec.yaml');
 
   var f = File(pathToYaml);
@@ -12,5 +8,7 @@ void versionCommand() async {
       var version = element.split(':').last;
       print('Cli arctekko \n version: $version');
     }
-  });
+  }); */
+
+  print('Cli arctekko \n version: 1.0.1');
 }

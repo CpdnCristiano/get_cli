@@ -32,7 +32,7 @@ void createScreenCommand(List<String> args) async {
     await Utils.createFile(screenFilePath);
     await Utils.writeFile(
         screenFilePath,
-        FileExempleUtils.createTextScreen(
+        await FileExempleUtils.createTextScreen(
             StringUtils.toPascalCase(name), nameSnakeCase));
   }
   await createController(
