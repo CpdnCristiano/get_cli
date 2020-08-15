@@ -4,7 +4,8 @@ import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
 void createRoutes(String nameRoute) async {
-  var routesFile = 'lib/infrastructure/navigation/routes.dart';
+  var routesFile =
+      Utils.autoPathConvert('lib/infrastructure/navigation/routes.dart');
   if (!await Utils.existsFile(routesFile)) {
     await Utils.createFile(routesFile);
     await Utils.writeFile(routesFile, FileExempleUtils.createTextRoutes());
@@ -14,7 +15,8 @@ void createRoutes(String nameRoute) async {
 }
 
 void _addRoute(String nameRoute) async {
-  var routesFile = 'lib/infrastructure/navigation/routes.dart';
+  var routesFile =
+      Utils.autoPathConvert('lib/infrastructure/navigation/routes.dart');
   var lines = await File(routesFile).readAsLinesSync();
   lines.removeLast();
   lines.add(
