@@ -1,4 +1,5 @@
 import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
 import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
@@ -37,24 +38,9 @@ void createWidgetCommand(List<String> args) async {
   var widgetFilePath = '${widgetDirectory}/${widgetFileName}';
   if (!await Utils.existsFile(widgetFilePath)) {
     await Utils.createFile(widgetFilePath);
-    await Utils.writeFile(
-        widgetFilePath, _createWidgetFile(Utils.nameInCamelCase(name)));
+    await Utils.writeFile(widgetFilePath,
+        FileExempleUtils.createTextWidget(StringUtils.toPascalCase(name)));
   }
-}
-
-String _createWidgetFile(String name) {
-  var widgetText = '''
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-class ${name}Widget extends GetWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-''';
-  return widgetText;
 }
 
 bool isCommonWidget(String screen) {

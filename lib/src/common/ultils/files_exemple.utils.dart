@@ -24,6 +24,21 @@ class ${name}Screen extends GetView<${name}Controller> {
 ''';
   }
 
+  static String createTextWidget(String name) {
+    return '''
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ${name}Widget extends GetWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+  
+}''';
+  }
+
   static String createTextRoutes() {
     return '''
 class Routes {
