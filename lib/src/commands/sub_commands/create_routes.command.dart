@@ -24,6 +24,7 @@ void _addRoute(String nameRoute) async {
   }
   lines.removeLast();
   lines.add(
+
       '  static const ${nameRoute.toUpperCase()} = \'${nameRoute.toLowerCase()}\';');
 
   _routesSort(lines);
