@@ -39,7 +39,11 @@ void createWidgetCommand(List<String> args) async {
   if (!await Utils.existsFile(widgetFilePath)) {
     await Utils.createFile(widgetFilePath);
     await Utils.writeFile(widgetFilePath,
+<<<<<<< HEAD
         FileExempleUtils.createTextWidget(Utils.nameInCamelCase(name)));
+=======
+        FileExempleUtils.createTextWidget(StringUtils.toPascalCase(name)));
+>>>>>>> master
   }
 }
 

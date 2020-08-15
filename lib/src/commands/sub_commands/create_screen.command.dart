@@ -30,8 +30,10 @@ void createScreenCommand(List<String> args) async {
 
   if (!await Utils.existsFile(screenFilePath)) {
     await Utils.createFile(screenFilePath);
-    await Utils.writeFile(screenFilePath,
-        FileExempleUtils.createTextScreen(StringUtils.toPascalCase(name)));
+    await Utils.writeFile(
+        screenFilePath,
+        await FileExempleUtils.createTextScreen(
+            StringUtils.toPascalCase(name), nameSnakeCase));
   }
   await createController(
       '${screenDirectory}/controllers/$nameSnakeCase.controller.dart', name);

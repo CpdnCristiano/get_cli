@@ -9,8 +9,9 @@ class ${name}Controller extends GetxController{
 ''';
   }
 
-  static String createTextScreen(String name) {
+  static String createTextScreen(String name, String snakeCase) {
     return '''
+import 'controllers/$snakeCase.controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,12 +30,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ${name}Widget extends GetWidget {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   @override
   Widget build(BuildContext context) {
     return Container();
   }
-}
-''';
+  
+}''';
   }
 
   static String createTextRoutes() {
@@ -44,7 +49,6 @@ class Routes {
     //todo: create method
     return null;
   }
-  
 }''';
   }
 }
