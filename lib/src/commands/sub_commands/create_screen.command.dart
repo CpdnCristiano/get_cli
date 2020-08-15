@@ -1,4 +1,8 @@
+import 'package:cpdn_cli/src/commands/sub_commands/create_controller.command.dart';
+import 'package:cpdn_cli/src/commands/sub_commands/create_routes.command.dart';
 import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
+import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
 void createScreenCommand(List<String> args) async {
@@ -15,8 +19,9 @@ void createScreenCommand(List<String> args) async {
     return;
   }
   name = name.toLowerCase();
-  var screenFileName = '${name.replaceAll(' ', '_')}.screen.dart';
-  var screenDirectory = 'lib/presentation/' + name.replaceAll(' ', '_');
+  var nameSnakeCase = StringUtils.toSnakeCase(name);
+  var screenFileName = '$nameSnakeCase.screen.dart';
+  var screenDirectory = 'lib/presentation/$nameSnakeCase';
   await Utils.createDiretory(screenDirectory);
   await Utils.createDiretory('${screenDirectory}/controllers');
   await Utils.createDiretory('${screenDirectory}/widgets');
@@ -25,22 +30,10 @@ void createScreenCommand(List<String> args) async {
 
   if (!await Utils.existsFile(screenFilePath)) {
     await Utils.createFile(screenFilePath);
-    await Utils.writeFile(
-        screenFilePath, _createScreenFile(Utils.nameInCamelCase(name)));
+    await Utils.writeFile(screenFilePath,
+        FileExempleUtils.createTextScreen(StringUtils.toPascalCase(name)));
   }
-}
-
-String _createScreenFile(String name) {
-  var screenText = '''
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-class ${name}Screen extends GetView {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-''';
-  return screenText;
+  await createController(
+      '${screenDirectory}/controllers/$nameSnakeCase.controller.dart', name);
+  await createRoutes(nameSnakeCase);
 }

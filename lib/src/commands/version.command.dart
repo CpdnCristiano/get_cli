@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'dart:io';
 
 import 'package:path/path.dart';
@@ -15,5 +13,4 @@ void versionCommand() async {
       print('Cli arctekko \n version: $version');
     }
   });
-  print(f.path);
 }

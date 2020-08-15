@@ -1,4 +1,5 @@
 import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
 void createWidgetCommand(List<String> args) async {
@@ -27,7 +28,8 @@ void createWidgetCommand(List<String> args) async {
   }
 
   name = name.toLowerCase();
-  var widgetFileName = '${name.replaceAll(' ', '_')}.widget.dart';
+  var nameSnakeCase = StringUtils.toSnakeCase(name);
+  var widgetFileName = '$nameSnakeCase.widget.dart';
   var widgetDirectory = isCommonWidget(dir)
       ? 'lib/common/widgets/${name.replaceAll(' ', '_')}'
       : 'lib/presentation/$dir/widgets/${name.replaceAll(' ', '_')}';
