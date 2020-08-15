@@ -30,10 +30,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ${name}Widget extends GetWidget {
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   @override
   Widget build(BuildContext context) {
     return Container();
