@@ -4,7 +4,7 @@ class FileExempleUtils {
 import 'package:get/get.dart';
 
 class ${name}Controller extends GetxController{
-  //todo: ${name}Controller
+  //TODO: ${name}Controller
 }
 ''';
   }
@@ -43,7 +43,7 @@ class ${name}Widget extends GetWidget {
     return '''
 class Routes {
   static Future<String> get initialRoute async {
-    //todo: create method
+    //TODO: create method
     return null;
   }
 

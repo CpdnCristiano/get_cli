@@ -20,7 +20,7 @@ void _addRoute(String nameRoute) async {
   var lines = await File(routesFile).readAsLinesSync();
   lines.removeLast();
   lines.add(
-      'static const ${nameRoute.toUpperCase()} = \'${nameRoute.toLowerCase()}\';');
+      ' static const ${nameRoute.toUpperCase()} = \'${nameRoute.toLowerCase()}\';');
   lines.add('}');
   await File(routesFile).writeAsStringSync(lines.join('\n'));
 }
