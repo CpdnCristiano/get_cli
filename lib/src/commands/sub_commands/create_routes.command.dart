@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
