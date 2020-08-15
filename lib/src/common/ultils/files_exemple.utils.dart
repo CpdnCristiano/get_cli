@@ -4,7 +4,7 @@ class FileExempleUtils {
 import 'package:get/get.dart';
 
 class ${name}Controller extends GetxController{
-  //todo: ${name}Controller
+  // TODO: implement ${name}Controller
 }
 ''';
   }
@@ -18,7 +18,13 @@ import 'package:get/get.dart';
 class ${name}Screen extends GetView<${name}Controller> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    returnScaffold(
+      appBar: AppBar(title: Text('${name}Screen '),
+      centerTitle: true,),
+      body: Center(
+        child: Text('${name}Screen  is working', style: TextStyle(fontSize:20),),
+      ),
+    );
   }
 }
 ''';
