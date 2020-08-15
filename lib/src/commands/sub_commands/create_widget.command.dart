@@ -1,4 +1,5 @@
 import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
 import 'package:cpdn_cli/src/common/ultils/ultils.dart';
 
 void createWidgetCommand(List<String> args) async {
@@ -6,13 +7,13 @@ void createWidgetCommand(List<String> args) async {
       (el) => el.startsWith('--name') || el.startsWith('--n'),
       orElse: () => null);
   if (name == null) {
-    logError('argument --name not found');
+    LogService.error('argument --name not found');
     return;
   }
   name = name.split('=')[1];
 
   if (name.isEmpty) {
-    logError('argument --name not found');
+    LogService.error('argument --name not found');
     return;
   }
   args = args.join(' ').split('-');
@@ -21,13 +22,14 @@ void createWidgetCommand(List<String> args) async {
   if (!isCommonWidget(dir)) {
     print(dir);
     if (!await Utils.existsScreen(dir)) {
-      logError('Screen not found');
+      LogService.error('Screen not found');
       return;
     }
   }
 
   name = name.toLowerCase();
-  var widgetFileName = '${name.replaceAll(' ', '_')}.widget.dart';
+  var nameSnakeCase = StringUtils.toSnakeCase(name);
+  var widgetFileName = '$nameSnakeCase.widget.dart';
   var widgetDirectory = isCommonWidget(dir)
       ? 'lib/common/widgets/${name.replaceAll(' ', '_')}'
       : 'lib/presentation/$dir/widgets/${name.replaceAll(' ', '_')}';

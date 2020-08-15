@@ -26,7 +26,7 @@ arctekko create wigdet screenFolderName --name="widget name"
 ```
 or in an abbreviated form
 ```sh
-arctekko c w screenFolderName --name="widget name"
+arctekko c w screenFolderName --n="widget name"
 ```
 ### Create Widget in common directory
 run the command in the flutter project directory
