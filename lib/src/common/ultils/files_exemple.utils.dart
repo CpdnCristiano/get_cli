@@ -1,9 +1,12 @@
 class FileExempleUtils {
   static String createTextController(String name) {
     return '''
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class ${name}Controller extends GetxController{
+  ${name}Controller({@required Map screenArgs});
+
   //TODO: ${name}Controller
 }
 ''';
@@ -18,7 +21,7 @@ import 'package:get/get.dart';
 class ${name}Screen extends GetView<${name}Controller> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
 ''';
