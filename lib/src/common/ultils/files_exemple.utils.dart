@@ -18,7 +18,7 @@ import 'package:get/get.dart';
 class ${name}Screen extends GetView<${name}Controller> {
   @override
   Widget build(BuildContext context) {
-    returnScaffold(
+    return Scaffold(
       appBar: AppBar(title: Text('${name}Screen '),
       centerTitle: true,),
       body: Center(
@@ -48,7 +48,7 @@ class ${name}Widget extends GetWidget {
     return '''
 class Routes {
   static Future<String> get initialRoute async {
-    //todo: create method
+    // TODO: implement method
     return null;
   }
 }''';
