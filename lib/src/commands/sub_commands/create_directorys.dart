@@ -43,7 +43,6 @@ void CreateDirectory(String path, bool skipExample) async {
 
   dirs.forEach((dir) async {
     path = path.endsWith('/') ? path : '$path/';
-    print(path);
     await Utils.createDiretory('$path$dir');
   });
   themeFiles.forEach((fileName) async {
