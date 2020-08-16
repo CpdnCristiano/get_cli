@@ -50,14 +50,4 @@ class ${name}Widget extends GetWidget {
   
 }''';
   }
-
-  static String createTextRoutes() {
-    return '''
-class Routes {
-  static Future<String> get initialRoute async {
-    // TODO: implement method
-    return null;
-  }
-}''';
-  }
 }

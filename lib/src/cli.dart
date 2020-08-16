@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cpdn_cli/arctekko.dart';
 import 'package:cpdn_cli/src/common/ultils/shell.utils.dart';
 
@@ -24,6 +22,9 @@ class Cli {
       case 'install':
         await PubspecUtils.addDependencies('get', '3.4.6');
         await ShellUtils.pubGet();
+        break;
+      case 'init':
+        initCommand(args);
         break;
       default:
         LogService.error(
