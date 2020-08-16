@@ -1,5 +1,5 @@
 # CLI arctekko
-### Description
+## Description
 A CLI flutter based on the code structure proposed by [*@Katekko*](https://github.com/Katekko) to use in  [**GetX**](https://pub.dev/packages/get),
 see structure details [**here**](https://github.com/Katekko/arctekko).
 
@@ -26,7 +26,7 @@ arctekko create wigdet screenFolderName --name="widget name"
 ```
 or in an abbreviated form
 ```sh
-arctekko c w screenFolderName --n="widget name"
+arctekko c w screenFolderName --name="widget name"
 ```
 ### Create Widget in common directory
 run the command in the flutter project directory
@@ -37,3 +37,11 @@ or in an abbreviated form
 ```sh
 arctekko c w --n="widget name"
 ```
+
+### Future Feature
+* #### Intall
+    Dependencies easy to install via the command line
+* #### create binding
+    generate initial binding structure
+* #### init 
+    generate all directories with a single command
