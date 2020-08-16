@@ -1,9 +1,4 @@
-import 'package:cpdn_cli/src/commands/sub_commands/create_controller.command.dart';
-import 'package:cpdn_cli/src/commands/sub_commands/create_routes.command.dart';
-import 'package:cpdn_cli/src/common/service/log.service.dart';
-import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
-import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
-import 'package:cpdn_cli/src/common/ultils/ultils.dart';
+import 'package:cpdn_cli/arctekko.dart';
 
 void createScreenCommand(List<String> args) async {
   var name = args.firstWhere(
@@ -18,8 +13,8 @@ void createScreenCommand(List<String> args) async {
     LogService.error('argument --name not found');
     return;
   }
-  name = name.toLowerCase();
-  var nameSnakeCase = StringUtils.toSnakeCase(name);
+  name = name.toLowerCase().trimLeft();
+  var nameSnakeCase = name.toSnakeCase();
   var screenFileName = '$nameSnakeCase.screen.dart';
   var screenDirectory = 'lib/presentation/$nameSnakeCase';
   await Utils.createDiretory(screenDirectory);
@@ -31,9 +26,7 @@ void createScreenCommand(List<String> args) async {
   if (!await Utils.existsFile(screenFilePath)) {
     await Utils.createFile(screenFilePath);
     await Utils.writeFile(
-        screenFilePath,
-        await FileExempleUtils.createTextScreen(
-            StringUtils.toPascalCase(name), nameSnakeCase));
+        screenFilePath, await FileExempleUtils.createTextScreen(name));
   }
   await createController(
       '${screenDirectory}/controllers/$nameSnakeCase.controller.dart', name);

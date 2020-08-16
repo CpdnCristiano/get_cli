@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/arctekko.dart';
 
 class Utils {
   static String currentPath = Directory.current.path;
@@ -24,8 +24,6 @@ class Utils {
   static void writeFile(String path, String text) async {
     await File(autoPathConvert('$currentPath/$path')).writeAsStringSync(text);
   }
-
-  static String nameInCamelCase(String name) {}
 
   static Future<bool> existsScreen(String screen) async {
     var presentationDir =

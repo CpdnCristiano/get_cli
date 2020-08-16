@@ -1,3 +1,5 @@
+import 'package:cpdn_cli/arctekko.dart';
+
 class FileExempleUtils {
   static String createTextController(String name) {
     return '''
@@ -13,21 +15,21 @@ class ${name}Controller extends GetxController{
 ''';
   }
 
-  static String createTextScreen(String name, String snakeCase) {
+  static String createTextScreen(String name) {
     return '''
-import 'controllers/$snakeCase.controller.dart';
+import 'controllers/${name.toSnakeCase()}.controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ${name}Screen extends GetView<${name}Controller> {
+class ${name.toPascalCase()}Screen extends GetView<${name.toPascalCase()}Controller> {
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text('${name}Screen '),
+      appBar: AppBar(title: Text('${name.toPascalCase()}Screen '),
       centerTitle: true,),
       body: Center(
-        child: Text('${name}Screen  is working', style: TextStyle(fontSize:20),),
+        child: Text('${name.toPascalCase()}Screen  is working', style: TextStyle(fontSize:20),),
       ),
     );
   }

@@ -28,8 +28,8 @@ void createWidgetCommand(List<String> args) async {
     }
   }
 
-  name = name.toLowerCase();
-  var nameSnakeCase = StringUtils.toSnakeCase(name);
+  name = name.toLowerCase().trimLeft();
+  var nameSnakeCase = name.toSnakeCase();
   var widgetFileName = '$nameSnakeCase.widget.dart';
   var widgetDirectory = isCommonWidget(dir)
       ? 'lib/common/widgets/${name.replaceAll(' ', '_')}'
@@ -38,8 +38,8 @@ void createWidgetCommand(List<String> args) async {
   var widgetFilePath = '${widgetDirectory}/${widgetFileName}';
   if (!await Utils.existsFile(widgetFilePath)) {
     await Utils.createFile(widgetFilePath);
-    await Utils.writeFile(widgetFilePath,
-        FileExempleUtils.createTextWidget(StringUtils.toPascalCase(name)));
+    await Utils.writeFile(
+        widgetFilePath, FileExempleUtils.createTextWidget(name.toPascalCase()));
   }
 }
 

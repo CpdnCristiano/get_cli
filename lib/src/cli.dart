@@ -1,6 +1,4 @@
-import 'package:cpdn_cli/src/commands/create.command.dart';
-import 'package:cpdn_cli/src/commands/version.command.dart';
-import 'package:cpdn_cli/src/common/service/log.service.dart';
+import 'package:cpdn_cli/arctekko.dart';
 
 class Cli {
   static void ProcessCommand(List<String> args) async {

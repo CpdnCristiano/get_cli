@@ -1,6 +1,7 @@
-class StringUtils {
-  static String toPascalCase(String value) {
-    var listWords = value.split(' ');
+extension StringUtils on String {
+  String toPascalCase() {
+    trimLeft();
+    var listWords = split(' ');
     var pascalCase = '';
     listWords.forEach((element) {
       element =
@@ -10,7 +11,7 @@ class StringUtils {
     return pascalCase;
   }
 
-  static String toSnakeCase(String value) {
-    return value.replaceAll(' ', '_');
+  String toSnakeCase() {
+    return replaceAll(' ', '_');
   }
 }
