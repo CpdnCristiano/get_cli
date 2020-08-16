@@ -38,6 +38,22 @@ or in an abbreviated form
 arctekko c w --n="widget name"
 ```
 
+### Test phase feature
+* ##### init 
+use to create a new project in the current directory
+``` 
+arctekko init .
+```
+
+**Attention**
+this command will overwrite some existing files. Do not use this command in an already started project
+
+
+the next command should create a new project but at the moment it has flaws
+ ``` 
+arctekko init my_fist_project
+```
+
 ### Future Feature
 * #### Intall
     Dependencies easy to install via the command line
