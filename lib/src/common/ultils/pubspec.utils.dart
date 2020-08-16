@@ -25,4 +25,17 @@ class PubspecUtils {
     }
     return null;
   }
+
+  static void addDependencies(String package, String version) async {
+    var pubspec = File('pubspec.yaml');
+    var lines = pubspec.readAsLinesSync();
+    var index =
+        lines.indexWhere((element) => element.trim() == 'dev_dependencies:');
+    while (lines[index - 1].isEmpty) {
+      index--;
+    }
+    version != null ? ' ^$version' : '';
+    lines.insert(index, '  $package: $version');
+    await pubspec.writeAsStringSync(lines.join('\n'));
+  }
 }

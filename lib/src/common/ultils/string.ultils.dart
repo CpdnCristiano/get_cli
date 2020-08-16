@@ -1,6 +1,7 @@
 extension StringUtils on String {
   String toPascalCase() {
     trimLeft();
+    trimRight();
     var listWords = split(' ');
     var pascalCase = '';
     listWords.forEach((element) {
@@ -12,6 +13,8 @@ extension StringUtils on String {
   }
 
   String toSnakeCase() {
-    return replaceAll(' ', '_');
+    trimLeft();
+    trimRight();
+    return replaceAll(' ', '_').toLowerCase();
   }
 }

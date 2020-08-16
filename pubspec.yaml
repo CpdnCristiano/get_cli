@@ -9,6 +9,7 @@ environment:
 dependencies:
   path: ^1.6.0
   ansicolor: ^1.0.2
+  process_run: ^0.10.12+1
 
 dev_dependencies:
   pedantic: ^1.8.0
