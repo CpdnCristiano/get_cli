@@ -4,9 +4,20 @@ A CLI flutter based on [**GetX**](https://pub.dev/packages/get),
 
 ### Installation
 requires [Dart](https://dart.dev/get-dart) to run.
-```sh
+```
 pub global activate -sgit https://github.com/CpdnCristiano/get_cli.git
 ```
+
+### Intall dependencies
+
+```
+    get install get:3.4.6
+```
+    or
+```
+    get intall get
+```
+    that way the latest version will be installed
 
 ### Create Screen
 run the command in the flutter project directory

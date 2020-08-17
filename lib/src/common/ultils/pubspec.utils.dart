@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:get_cli/src/common/ultils/pub_dev.utils.dart';
 import 'package:get_cli/src/common/ultils/ultils.dart';
 
 class PubspecUtils {
@@ -26,7 +27,7 @@ class PubspecUtils {
     return null;
   }
 
-  static void addDependencies(String package, String version) async {
+  static void addDependencies(String package, {String version}) async {
     var pubspec = File('pubspec.yaml');
     var lines = pubspec.readAsLinesSync();
     var index =
@@ -34,7 +35,9 @@ class PubspecUtils {
     while (lines[index - 1].isEmpty) {
       index--;
     }
-    version != null ? ' ^$version' : '';
+    version = version == null || version.isEmpty
+        ? await PubDev.getLasteVersion(package)
+        : ' ^$version';
     lines.insert(index, '  $package: $version');
     await pubspec.writeAsStringSync(lines.join('\n'));
   }

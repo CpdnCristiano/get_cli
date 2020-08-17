@@ -24,7 +24,7 @@ void initCommand(List<String> args) async {
   dir = dir == '.' ? Directory('').path : dir;
   await ShellUtils.flutterCreate(dir);
   await ShellUtils.cdDir(dir);
-  await PubspecUtils.addDependencies('get', '3.4.6');
+  await PubspecUtils.addDependencies('get', version: '3.4.6');
   await ShellUtils.pubGet();
   await CreateDirectory(dir, skipExample);
   await ShellUtils.cdDir('..');
