@@ -17,15 +17,16 @@ class ShellUtils {
   }
 
   static void update() async {
-    var result = await run(
+    LogService.info('upgrade get_cli');
+    await run(
         'pub',
         [
           'global',
           'activate',
           '-sgit',
-          'https://github.com/CpdnCristiano/cpdn-cli.git'
+          'https://github.com/CpdnCristiano/get_cli.git'
         ],
         verbose: true);
-    print(result.stdout);
+    LogService.success('upgrade complete');
   }
 }

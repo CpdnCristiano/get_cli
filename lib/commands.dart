@@ -1,5 +1,5 @@
 export 'package:get_cli/src/arctekko/commands/create.command.dart';
-export 'package:get_cli/src/arctekko/commands/version.command.dart';
+export 'package:get_cli/src/common/version.command.dart';
 export 'package:get_cli/src/arctekko/commands/init.command.dart';
 //sub commands
 export 'package:get_cli/src/arctekko/commands/sub_commands/create_controller.command.dart';
