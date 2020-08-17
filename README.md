@@ -11,11 +11,12 @@ pub global activate -sgit https://github.com/CpdnCristiano/get_cli.git
 ### Intall dependencies
 
 ```sh
-    get install get:3.4.6
+get install get:3.4.6
 ```
     or
-```
-    get intall get
+
+```sh
+get install get
 ```
     that way the latest version will be installed
 
