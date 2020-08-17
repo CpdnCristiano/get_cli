@@ -26,7 +26,7 @@ class ShellUtils {
           '-sgit',
           'https://github.com/CpdnCristiano/get_cli.git'
         ],
-        verbose: true);
+        verbose: false);
     LogService.success('upgrade complete');
   }
 }
