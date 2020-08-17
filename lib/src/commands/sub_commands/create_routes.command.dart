@@ -23,7 +23,7 @@ void _addRoute(String nameRoute) async {
   }
   lines.removeLast();
   lines.add(
-      '  static const ${nameRoute.toUpperCase()} = \'${nameRoute.toLowerCase()}\';');
+      '  static const ${nameRoute.toUpperCase()} = \'${nameRoute.toLowerCase().replaceAll('_', '-')}\';');
 
   _routesSort(lines);
 
