@@ -13,10 +13,8 @@ pub global activate -sgit https://github.com/CpdnCristiano/get_cli.git
 ```sh
     get install get:3.4.6
 ```
-
     or
-
-```sh
+```
     get intall get
 ```
     that way the latest version will be installed
@@ -63,7 +61,7 @@ this command will overwrite some existing files. Do not use this command in an a
 
 
 the next command should create a new project but at the moment it has flaws
- ``` 
+``` 
 getarctekko init my_fist_project
 ```
 
