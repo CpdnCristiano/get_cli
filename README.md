@@ -10,11 +10,13 @@ pub global activate -sgit https://github.com/CpdnCristiano/get_cli.git
 
 ### Intall dependencies
 
-```
+```sh
     get install get:3.4.6
 ```
+
     or
-```
+
+```sh
     get intall get
 ```
     that way the latest version will be installed
@@ -34,6 +36,7 @@ run the command in the flutter project directory
 ```sh
 get arctekko create wigdet screenFolderName --name="widget name"
 ```
+
 or in an abbreviated form
 ```sh
 get arctekko c w screenFolderName --name="widget name"
