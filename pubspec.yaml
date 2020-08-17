@@ -1,13 +1,12 @@
-name: cpdn_cli
+name: get_cli
 description: A sample command-line application.
-version: 1.0.1
-homepage: https://www.example.com
+version: 2.0.0
+homepage: https://github.com/CpdnCristiano/get_cli
 
 environment:
   sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
-  path: ^1.6.0
   ansicolor: ^1.0.2
   process_run: ^0.10.12+1
 
@@ -16,4 +15,4 @@ dev_dependencies:
   test: ^1.6.0
 
 executables:
-  arctekko: main
+  get: main

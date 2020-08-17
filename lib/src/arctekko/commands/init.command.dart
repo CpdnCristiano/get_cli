@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 void initCommand(List<String> args) async {
   if (args.isEmpty) {

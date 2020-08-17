@@ -1,4 +1,4 @@
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 import 'package:process_run/process_run.dart';
 
 class ShellUtils {
@@ -14,5 +14,18 @@ class ShellUtils {
 
   static void cdDir(String dir) async {
     await run('cd', [dir], verbose: false);
+  }
+
+  static void update() async {
+    var result = await run(
+        'pub',
+        [
+          'global',
+          'activate',
+          '-sgit',
+          'https://github.com/CpdnCristiano/cpdn-cli.git'
+        ],
+        verbose: true);
+    print(result.stdout);
   }
 }

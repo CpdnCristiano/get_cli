@@ -1,4 +1,4 @@
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 class FileExempleUtils {
   static String createTextController(String name) {

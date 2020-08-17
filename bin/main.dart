@@ -1,5 +1,5 @@
-import 'package:cpdn_cli/src/cli.dart';
+import 'package:get_cli/src/cli.dart';
 
 void main(List<String> arguments) {
-  Cli.ProcessCommand(List<String>.from(arguments));
+  GetCli.ProcessCommand(List<String>.from(arguments));
 }

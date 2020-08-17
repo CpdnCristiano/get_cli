@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 void CreateDirectory(String path, bool skipExample) async {
   var widgetFile = File('./test/widget_test.dart');

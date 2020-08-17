@@ -1,4 +1,4 @@
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 void createController(String path, String name) async {
   if (!await Utils.existsFile(path)) {

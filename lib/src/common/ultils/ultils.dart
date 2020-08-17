@@ -1,33 +1,35 @@
 import 'dart:io';
 
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 class Utils {
-  static String currentPath = Directory.current.path;
+  static final String _currentPath = Directory.current.path;
   static void createDiretory(String directory) async {
     LogService.info('Creating "${directory}"');
-    await Directory(autoPathConvert('${currentPath}/${directory}/'))
+    await Directory('${_currentPath}/${directory}/')
+        .toDynamicDirectory()
         .createSync(recursive: true);
 
     LogService.success('Create "${directory}" with Success');
   }
 
   static Future<bool> existsFile(String path) async {
-    return await File(autoPathConvert('$currentPath/$path')).existsSync();
+    return await File('$_currentPath/$path').toDynamicFile().existsSync();
   }
 
   static void createFile(String path) async {
-    await File(autoPathConvert('$currentPath/$path'))
+    await File('$_currentPath/$path')
+        .toDynamicFile()
         .createSync(recursive: true);
   }
 
   static void writeFile(String path, String text) async {
-    await File(autoPathConvert('$currentPath/$path')).writeAsStringSync(text);
+    await File('$_currentPath/$path').toDynamicFile().writeAsStringSync(text);
   }
 
   static Future<bool> existsScreen(String screen) async {
     var presentationDir =
-        Directory(autoPathConvert('$currentPath/lib/presentation'));
+        Directory('$_currentPath/lib/presentation').toDynamicDirectory();
     List allContents = presentationDir.listSync();
     for (var dir in allContents) {
       if (dir is Directory) {
@@ -46,8 +48,8 @@ class Utils {
   }
 
   static Future<bool> isFlutterDirectory() async {
-    var presentationDir = Directory.current;
-    List allContents = await presentationDir.listSync();
+    var dir = Directory.current;
+    List allContents = await dir.listSync();
     for (var dir in allContents) {
       if (dir is File) {
         if (extractFileName(dir.path) == 'pubspec.yaml') return true;
@@ -58,9 +60,5 @@ class Utils {
 
   static String extractFileName(String path) {
     return Platform.isWindows ? path.split('\\').last : path.split('/').last;
-  }
-
-  static String autoPathConvert(String path) {
-    return Platform.isWindows ? path.replaceAll('/', '\\') : path;
   }
 }

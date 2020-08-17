@@ -1,7 +1,4 @@
-import 'package:cpdn_cli/src/common/service/log.service.dart';
-import 'package:cpdn_cli/src/common/ultils/files_exemple.utils.dart';
-import 'package:cpdn_cli/src/common/ultils/string.ultils.dart';
-import 'package:cpdn_cli/src/common/ultils/ultils.dart';
+import 'package:get_cli/arctekko.dart';
 
 void createWidgetCommand(List<String> args) async {
   var name = args.firstWhere(

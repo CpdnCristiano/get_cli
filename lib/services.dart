@@ -1,1 +1,1 @@
-export 'package:cpdn_cli/src/common/service/log.service.dart';
+export 'package:get_cli/src/common/service/log.service.dart';

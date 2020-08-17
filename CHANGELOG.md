@@ -1,3 +1,3 @@
-## 1.0.0
-
-- Initial version, created by Stagehand
+## 2.0.0
+- changed the project name
+- changed command arctekko to get

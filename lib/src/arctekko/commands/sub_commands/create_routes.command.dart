@@ -1,10 +1,9 @@
 import 'dart:io';
 
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 void createRoutes(String nameRoute) async {
-  var routesFile =
-      Utils.autoPathConvert('lib/infrastructure/navigation/routes.dart');
+  var routesFile = 'lib/infrastructure/navigation/routes.dart';
   if (!await Utils.existsFile(routesFile)) {
     await Utils.createFile(routesFile);
     await Utils.writeFile(routesFile, InitFiles.files['routes.dart']);
@@ -14,9 +13,8 @@ void createRoutes(String nameRoute) async {
 }
 
 void _addRoute(String nameRoute) async {
-  var routesFile =
-      Utils.autoPathConvert('lib/infrastructure/navigation/routes.dart');
-  var lines = await File(routesFile).readAsLinesSync();
+  var routesFile = 'lib/infrastructure/navigation/routes.dart';
+  var lines = await File(routesFile).toDynamicFile().readAsLinesSync();
 
   while (lines.last.isEmpty) {
     lines.removeLast();
@@ -27,7 +25,7 @@ void _addRoute(String nameRoute) async {
 
   _routesSort(lines);
 
-  await File(routesFile).writeAsStringSync(lines.join('\n'));
+  await File(routesFile).toDynamicFile().writeAsStringSync(lines.join('\n'));
 }
 
 List<String> _routesSort(List<String> lines) {

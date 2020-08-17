@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:cpdn_cli/src/common/ultils/ultils.dart';
+import 'package:get_cli/src/common/ultils/ultils.dart';
 
 class PubspecUtils {
   static Future<String> _getPubspecDir() async {

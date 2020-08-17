@@ -1,6 +1,6 @@
 import 'package:get_cli/arctekko.dart';
 
-class GetCli {
+class Arctekko {
   static void ProcessCommand(List<String> args) async {
     if (args.isEmpty) {
       LogService.error('unquoted command');
@@ -10,12 +10,12 @@ class GetCli {
     var command = args.first.toLowerCase();
     args.removeAt(0);
     switch (command) {
-      case 'arctekko':
-      case 'arc':
-        Arctekko.ProcessCommand(args);
+      case 'create':
+      case 'c':
+        createCommand(args);
         break;
-      case 'upgrade':
-        ShellUtils.update();
+      case 'init':
+        initCommand(args);
         break;
       default:
         LogService.error('comando invalido');

@@ -1,7 +1,4 @@
-import 'package:cpdn_cli/src/commands/sub_commands/create_screen.command.dart';
-import 'package:cpdn_cli/src/commands/sub_commands/create_widget.command.dart';
-import 'package:cpdn_cli/src/common/service/log.service.dart';
-import 'package:cpdn_cli/src/common/ultils/ultils.dart';
+import 'package:get_cli/arctekko.dart';
 
 void createCommand(List<String> args) async {
   if (!await Utils.isFlutterDirectory()) {

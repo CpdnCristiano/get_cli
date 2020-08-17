@@ -1,4 +1,4 @@
-import 'package:cpdn_cli/arctekko.dart';
+import 'package:get_cli/arctekko.dart';
 
 void createScreenCommand(List<String> args) async {
   var name = args.firstWhere(
