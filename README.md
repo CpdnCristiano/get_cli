@@ -59,7 +59,7 @@ get arctekko init .
 this command will overwrite some existing files. Do not use this command in an already started project
 
 
-the next command should create a new project but at the moment it has flaws
+the next command should create a new project but at the moment it has error
 ``` 
 get arctekko init my_fist_project
 ```
