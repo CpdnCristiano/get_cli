@@ -1,4 +1,6 @@
 import 'package:get_cli/arctekko.dart';
+import 'package:get_cli/src/arctekko/commands/sub_commands/create_binding.dart';
+import 'package:get_cli/src/arctekko/commands/sub_commands/create_navigation.dart';
 
 void createScreenCommand(List<String> args) async {
   var name = args.firstWhere(
@@ -31,4 +33,6 @@ void createScreenCommand(List<String> args) async {
   await createController(
       '${screenDirectory}/controllers/$nameSnakeCase.controller.dart', name);
   await createRoutes(nameSnakeCase);
+  await createBinding(name);
+  await createNavigation(name);
 }

@@ -50,4 +50,19 @@ class ${name}Widget extends GetWidget {
   
 }''';
   }
+
+  static String createTextBinding(String name) {
+    return '''
+import '../../../../presentation/${name.toSnakeCase()}/controllers/${name.toSnakeCase()}.controller.dart';
+import 'package:get/get.dart';
+
+class ${name.toPascalCase()}ControllerBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<${name.toPascalCase()}Controller>(
+          () => ${name.toPascalCase()}Controller(screenArgs: Get.arguments),
+    );
+  }
+}''';
+  }
 }

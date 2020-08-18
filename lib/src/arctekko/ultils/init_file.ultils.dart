@@ -137,7 +137,7 @@ class Routes {
   static const COUNTER = 'counter';
 }''',
     'navigation.dart': '''
-
+import '../../infrastructure/navigation/routes.dart';
 import 'package:get/get.dart';
 
 class Nav {
