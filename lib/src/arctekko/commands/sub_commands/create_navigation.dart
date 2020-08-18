@@ -1,4 +1,3 @@
-import 'dart:indexed_db';
 import 'dart:io';
 
 import 'package:get_cli/arctekko.dart';
@@ -28,6 +27,11 @@ void _addNav(String name) async {
       lines.length - 2, '    page: () => ${name.toPascalCase()}Screen(),');
   lines.insert(lines.length - 2,
       '    binding: ${name.toPascalCase()}ControllerBinding()');
+  lines.insert(lines.length - 2, '  ),');
+  lines.insert(0,
+      '''import '../../presentation/${name.toSnakeCase()}/${name.toSnakeCase()}.screen.dart';''');
+  lines.insert(0,
+      '''import '../../infrastructure/navigation/bindings/controllers/${name.toSnakeCase()}.controller.binding.dart';''');
 
   await File(routesFile).toDynamicFile().writeAsStringSync(lines.join('\n'));
 }
