@@ -22,6 +22,9 @@ class GetCli {
       case 'upgrade':
         ShellUtils.update();
         break;
+      case '--version':
+        versionCommand();
+        break;
       default:
         LogService.error('comando invalido');
     }
