@@ -8,7 +8,6 @@ void createNavigation(String name) async {
     await Utils.createFile(navigationFile);
     await Utils.writeFile(navigationFile, InitFiles.files['navigation.dart']);
   }
-
   _addNav(name);
 }
 

@@ -1,4 +1,9 @@
 # Get Cli
+
+# Discontinuing
+This project has been discontinued in the current repository.
+Access the new repository [**here**](https://github.com/jonataslaw/get_cli/)
+
 ## Description
 A CLI flutter based on [**GetX**](https://pub.dev/packages/get),
 
